@@ -1,0 +1,102 @@
+@font-face {
+    font-family: "Marvel", "Regular";
+    src: url("../marvel-font/MarvelRegular-Dj83.ttf");
+}
+
+body {
+    font-family: "Regular";
+    height: 100vh;
+    width: 100vw;
+    .body-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: rgba(27, 27, 27, 0);
+            background-image: linear-gradient(rgba(199, 199, 199, 0.884), rgba(170, 170, 170, 0.753)), url("../img/marvel1.jpg");
+            background-repeat: cover;
+            background-attachment: fixed;
+            a {
+                // margin-top: 150px;
+                color: black;
+                text-decoration: none;
+                .card {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 30px;
+                    align-items: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    justify-content: center;
+                    width: 236px;
+                    height: 384px;
+                    transition: 1s;
+                    border-radius: 10px;
+                    // border: 7px #ed1d24 solid;
+                    background-color: #ed1d24;
+                    box-shadow: 5px 5px 15px 5px #000000;
+                    .card-name {
+                        z-index: 1;
+                        background-color: rgb(255, 255, 255);
+                        border-radius: 10px;
+                        width: 240px;
+                        height: 30px;
+                        position: absolute;
+                        margin-top: -330px;
+                        box-shadow: 5px 5px 15px 5px #2b2b2b;
+                        .char-name {
+                            font-weight: bold;
+                            text-align: center;
+                            color: #c7c7c7;
+                            background: #e8e8e8;
+                            text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.089), 1px 1px 1px rgba(0, 0, 0, 0.726);
+                        }
+                    }
+                    .card-image {
+                        width: 216px;
+                        height: 324px;
+                        transition: 1s;
+                        border: #000 solid 3px;
+                        border-radius: 10px;
+                        position: absolute;
+                    }
+                    .char-description {
+                        background-color: rgba(255, 255, 255, 0.486);
+                        padding: 10px;
+                        border-radius: 10px;
+                        position: relative;
+                        margin-top: 50px;
+                        // margin-bottom: 0;
+                        width: 216px;
+                        height: 304px;
+                        opacity: 0;
+                        display: none;
+                        &:hover {
+                            opacity: 1;
+                            transition: 1s;
+                        }
+                    }
+                }
+                .card:hover>.char-description {
+                    display: block;
+                }
+            }
+        }
+        .button-container {
+            height: 50px;
+            width: 100vw;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: #ed1d24;
+            button {
+                height: 30px;
+                width: 100px;
+            }
+        }
+    }
+}
