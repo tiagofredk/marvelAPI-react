@@ -6,32 +6,21 @@ import Swal from 'sweetalert2'
 
 export default function About() {
 
-    const { Caracters, Id, Profile } = useContext(MainContext);
+    const { Profile } = useContext(MainContext);
 
-    const [Comics, setComics] = useState(false);
-    const [Stories, setStories] = useState(false);
-    const [Events, setEvents] = useState(false);
-    const [Series, setSeries] = useState(false);
-    const [Togglecomics, setTogglecomics] = useState(false);
+    
     const [Togglestories, setTogglestories] = useState(false);
-    const [Toggleevents, setToggleevents] = useState(false);
-    const [Toggleseries, setToggleseries] = useState(false);
+    
     // const [Style, setStyle] = useState(false);
 
     useEffect(() => {
-        // console.log(Caracters)
-        // Caracters.map(item => {
-        //     if (item.id === Id) {
-        //         setProfile(item)
-        //     }
-        //     return item
-        // })
+        
         console.log(Profile);
 
     }, [0])
 
     return (
-        //style={{backgroundImage:`${Profile.thumbnail.path}/landscape_incredible.jpg`}}
+        
         <div className='about-main-container'>
             <Link to="/">
                 <Header />

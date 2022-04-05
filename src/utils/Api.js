@@ -16,22 +16,3 @@ const api = axios.create({
 })
 
 export default api;
-
-// useEffect(() => {
-
-    //     console.log("useEffect");
-
-    //     async function fetch() {
-    //         try {
-    //             await axios.get(`http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${publicKey}&hash=${hash}`)                         
-    //                 .then(response => {
-    //                     setCaracters(response.data.data.results);
-    //                 })
-    //                 .catch(err => console.log(err));
-
-    //         } catch (error) {
-    //             console.log(error);
-    //         }
-    //     }; fetch();
-
-    // }, [0]);

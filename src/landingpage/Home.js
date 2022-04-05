@@ -39,15 +39,11 @@ function Home() {
                 
                 {Caracters.map((item) => (
                     
-                    // "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"
-                    // description: ""
                     <Link onClick={() => profile(item.id)} key={item.id} to="about" >
                         <div
                             key={item.id}
                             className='card'
-                            style={{
-                                // backgroundImage: `url("${item.thumbnail.path + "/portrait_incredible.jpg"}")`,
-                            }} >
+                             >
                             <div className='card-name'>
                                 <p className='char-name'>{item.name}</p>
                             </div>
