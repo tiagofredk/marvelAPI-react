@@ -27,7 +27,7 @@ export default function About() {
         //     return item
         // })
         console.log(Profile);
-        
+
     }, [0])
 
     return (
@@ -38,92 +38,83 @@ export default function About() {
             </Link>
 
             <h1>{Profile.name} </h1>
-            
+
             <div className='image-container'>
-                
+
                 {Profile.thumbnail && <img src={Profile.thumbnail.path + "/portrait_incredible.jpg"} />}
-                
+
                 <div className='description'>
                     <h3>Description</h3>
                     <p>{Profile.description} </p>
                 </div>
             </div>
 
-            <div
-                className='about-container'
-                style={{
-                    justifyContent: 'center',
-                    // backgroundImage: `url("${Profile.thumbnail.path + "/portrait_incredible.jpg"}")`,
-                }} >
+            <div className='about-container'>
 
-
-                <div onClick={() =>{ 
-                    setComics(!Comics) 
-                    // setTogglecomics(!Togglecomics)
+                <div onClick={() => {
                     Swal.fire(
                         'Comics',
                         `${Profile.comics.items.map(item => {
                             return (
-                                
                                 item.name
-                                
                             );
                         })}`,
-                        
-                      )
+                    )
                 }
-                    
-                    }
-                    className={Togglecomics ? 'about-pop' : 'plus-about '}>
+
+                }
+                    className='plus-about'>
                     <h3 >Comics</h3>
-                    {Comics && Profile.comics.items.map(item => {
-                        return (
-                            
-                            <p key={item.id}>{item.name}</p>
-                            
-                        );
-                    })}
-                </div>
-
-                <div onClick={() =>{ 
-                    setStories(!Stories)
-                    setTogglestories(!Togglestories)}
-                    }
-                     className={Togglestories ? 'about-pop' : 'plus-about '}>
-                    <h3 >Stories</h3>
-                    {Stories && Profile.stories.items.map(item => {
-                        return (
-                            <p key={item.id}>{item.name}</p>
-                        );
-                    })}
-                </div>
-
-                <div onClick={() =>{ 
-                    setEvents(!Events) 
-                    setToggleevents(!Toggleevents)}
-                    }
-                    className={Toggleevents ? 'about-pop' : 'plus-about '}>
-                    <h3 >Events</h3>
-                    {Events && Profile.events.items.map(item => {
-                        return (
-                            <p key={item.id}>{item.name}</p>
-                        );
-                    })}
+                   
                 </div>
 
                 <div onClick={() => {
-                    setSeries(!Series) 
-                    setToggleseries(!Toggleseries)
-                    }} 
-                    className={Toggleseries ? 'about-pop' : 'plus-about '}>
+                    
+                    setTogglestories(!Togglestories)
+                    Swal.fire(
+                        'Stories',
+                        `${Profile.comics.items.map(item => {
+                            return (
+                                item.name
+                            );
+                        })}`,
+                    )
+                }
+                }
+                     className='plus-about'>
+                    <h3 >Stories</h3>
+                    
+                </div>
+
+                <div onClick={() => {
+                    Swal.fire(
+                        'Events',
+                        `${Profile.comics.items.map(item => {
+                            return (
+                                item.name
+                            );
+                        })}`,
+                    )
+                }
+                }
+                    className='plus-about'>
+                    <h3 >Events</h3>
+                    
+                </div>
+
+                <div onClick={() => {
+                    Swal.fire(
+                        'Series',
+                        `${Profile.comics.items.map(item => {
+                            return (
+                                item.name
+                            );
+                        })}`,
+                    )
+                }}
+                    className='plus-about'>
 
                     <h3 >Series</h3>
-
-                    {Series && Profile.series.items.map(item => {
-                        return (
-                            <p key={item.id}>{item.name}</p>
-                        );
-                    })}
                 </div>
 
             </div>
