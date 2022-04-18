@@ -11,39 +11,36 @@ export const MainContextProvider = ({ children }) => {
     const [Profile, setProfile] = useState({});
     const [Offset, setOffset] = useState(0)
 
-    // http://gateway.marvel.com/v1/public/characters?offset=0&ts=1650286301399&apikey=a5a4cf7ed033c0ede02a7ebc64639c70&hash=020268d130ffbbbf7fea93b89b7838ef
-    // http://gateway.marvel.com/v1/public//characters?offset=0&ts=1650286301399&apikey=a5a4cf7ed033c0ede02a7ebc64639c70&hash=020268d130ffbbbf7fea93b89b7838ef
-    // http://gateway.marvel.com/v1/public/characters?offset=0&ts=1650286404981&apiKey=a5a4cf7ed033c0ede02a7ebc64639c70&hash=c6fca77f1b8a8034bcab9995eeedf5b2
     useEffect(() => {
-        async function fetch() {
-            
-            await api.get(`/characters?offset=${Offset}`)
-                .then(response => {
-                    console.log(response);
-                    setCaracters(response.data.data.results);
-                })
-                .catch(err => console.log(err));
-
-        }; fetch();
-
         // async function fetch() {
-        //     const baseURL = "http://gateway.marvel.com/v1/public";
-        //     const publicKey = "a5a4cf7ed033c0ede02a7ebc64639c70";
-        //     const privateKey = "137302d75f04aa04868bbea4642c38dcb9469231";
-        //     const time = Number(new Date());
-        //     const hash = md5(time + privateKey + publicKey);
-        //     try {
-        //         await axios.get(`${baseURL}/characters?offset=${Offset}&ts=${time}&apikey=${publicKey}&hash=${hash}`)
-        //             .then(response => {
-        //                 setCaracters(response.data.data.results);
-        //                 console.log(response.data.data.results);
-        //             })
-        //             .catch(err => console.log(err));
+            
+        //     await api.get(`/characters?offset=${Offset}`)
+        //         .then(response => {
+        //             console.log(response);
+        //             setCaracters(response.data.data.results);
+        //         })
+        //         .catch(err => console.log(err));
 
-        //     } catch (error) {
-        //         console.log(error);
-        //     }
         // }; fetch();
+
+        async function fetch() {
+            const baseURL = "http://gateway.marvel.com/v1/public";
+            const publicKey = "a5a4cf7ed033c0ede02a7ebc64639c70";
+            const privateKey = "137302d75f04aa04868bbea4642c38dcb9469231";
+            const time = Number(new Date());
+            const hash = md5(time + privateKey + publicKey);
+            try {
+                await axios.get(`${baseURL}/characters?offset=${Offset}&ts=${time}&apikey=${publicKey}&hash=${hash}`)
+                    .then(response => {
+                        setCaracters(response.data.data.results);
+                        console.log(response.data.data.results);
+                    })
+                    .catch(err => console.log(err));
+
+            } catch (error) {
+                console.log(error);
+            }
+        }; fetch();
 
     }, [Offset]);
 
